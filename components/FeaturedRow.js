@@ -2,6 +2,7 @@ import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
 import { ArrowRightIcon } from 'react-native-heroicons/outline'
 import RestaurantCard from './RestaurantCard'
+import sushi from "../assets/images/sushi-1.jpg"
 
 const FeaturedRow = ({title, description, featuredCategory}) => {
   return (
@@ -31,7 +32,8 @@ const FeaturedRow = ({title, description, featuredCategory}) => {
       <Text className = "text-xs text-gray-500"
         style = {{
             fontSize: 12,
-            color: 'gray'
+            color: 'gray',
+            paddingVertical: 8
         }}
       >
         {description}
@@ -43,7 +45,33 @@ const FeaturedRow = ({title, description, featuredCategory}) => {
       }}
       >
         {/* Resturant cards */}
-        <RestaurantCard />
+        <RestaurantCard 
+         id = {123} imgURL = {sushi}
+         title = "Yo Sushi" rating = {3}
+         genre = "Japanese" address = "123 street"
+         short_description = "A short description"
+         dishes = {[]}
+         long = {20}
+         lat = {34}
+         />
+        <RestaurantCard 
+         id = {123} imgURL = {sushi}
+         title = "Yo Sushi" rating = {3}
+         genre = "Japanese" address = "123 street"
+         short_description = "A short description"
+         dishes = {[]}
+         long = {20}
+         lat = {34}
+         />
+        <RestaurantCard 
+         id = {123} imgURL = {sushi}
+         title = "Yo Sushi" rating = {3}
+         genre = "Japanese" address = "123 street"
+         short_description = "A short description"
+         dishes = {[]}
+         long = {20}
+         lat = {34}
+         />
       </ScrollView>
     </View>
   )
