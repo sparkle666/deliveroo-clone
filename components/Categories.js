@@ -1,7 +1,7 @@
 import { View, Text, ScrollView, Image } from 'react-native'
 import React from 'react'
 import CategoryCard from './CategoryCard'
-import sushi1 from '../assets/images/sushi1'
+import sushi1 from '../assets/images/sushi-1.jpg'
 
 const Categories = () => {
   return (
@@ -9,14 +9,15 @@ const Categories = () => {
      contentContainerStyle = {{
         paddingHorizontal: 15,
         paddingTop: 10
-     }} >
-      <CategoryCard imgURL = "https://links.papareact.com/gn7" title = "Testing 1" />
-      <CategoryCard imgURL = "https://links.papareact.com/gn7" title = "Testing 2" />
-      <CategoryCard imgURL = "https://links.papareact.com/gn7" title = "Testing 3" />
-      <Image source = {{
-        uri: "https://links.papareact.com/gn7"
-      }}
-      />
+     }} 
+     showsHorizontalScrollIndicator = {false}
+     >
+      <CategoryCard img = {sushi1} title = "Testing 1" />
+      <CategoryCard img = {sushi1} title = "Testing 2" />
+      <CategoryCard img = {sushi1} title = "Testing 3" />
+      <CategoryCard img = {sushi1} title = "Testing 1" />
+      <CategoryCard img = {sushi1} title = "Testing 2" />
+      <CategoryCard img = {sushi1} title = "Testing 3" />
     </ScrollView>
   )
 }

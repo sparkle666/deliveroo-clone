@@ -7,6 +7,7 @@ import {
     MagnifyingGlassIcon, 
     AdjustmentsVerticalIcon} from 'react-native-heroicons/outline'
 import Categories from '../components/Categories'
+import FeaturedRow from '../components/FeaturedRow'
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -41,14 +42,37 @@ const HomeScreen = () => {
                     <TextInput
                     placeholder='Resturants and cuisines'
                     keyboardType='default'
+                    style = {{width: 'auto'}}
                     />
                 </View>
                 <AdjustmentsVerticalIcon size = {24} color = '#00CCBB' />
             </View>
-            {/* Categories */}
         </View>
-        <ScrollView>
+        {/* Categories */}
+        <ScrollView className = 'bg-gray-100'
+        contentContainerStyle = {{
+            paddingBottom: 100
+        }}
+        >
             <Categories />
+            {/* Featured rows */}
+            <FeaturedRow 
+                title = "Featured"
+                description = "Paid placements from our partners"
+                id = '12'
+            />
+            {/* Tasty Disount */}
+            <FeaturedRow 
+                title = "Featured"
+                description = "Paid placements from our partners"
+                id = '123'
+            />
+            {/* Offers near you */}
+            <FeaturedRow 
+                title = "Featured"
+                description = "Paid placements from our partners"
+                id = '1234'
+            />
         </ScrollView>
     </SafeAreaView>
   )
