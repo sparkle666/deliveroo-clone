@@ -51,7 +51,7 @@ const HomeScreen = () => {
         {/* Categories */}
         <ScrollView className = 'bg-gray-100'
         contentContainerStyle = {{
-            paddingBottom: 100
+            paddingBottom: 10
         }}
         >
             <Categories />
@@ -63,14 +63,14 @@ const HomeScreen = () => {
             />
             {/* Tasty Disount */}
             <FeaturedRow 
-                title = "Featured"
-                description = "Paid placements from our partners"
+                title = "Tasty Discount"
+                description = "Everyone has being enjoying this juicy discounts"
                 id = '123'
             />
             {/* Offers near you */}
             <FeaturedRow 
-                title = "Featured"
-                description = "Paid placements from our partners"
+                title = "Offers near you"
+                description = "Why not surpport your local resturants tonight!"
                 id = '1234'
             />
         </ScrollView>
