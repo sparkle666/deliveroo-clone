@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput } from 'react-native'
+import { View, Text, Image, TextInput, ScrollView } from 'react-native'
 import React, { useLayoutEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -6,6 +6,7 @@ import {
     ChevronDownIcon, UserIcon, 
     MagnifyingGlassIcon, 
     AdjustmentsVerticalIcon} from 'react-native-heroicons/outline'
+import Categories from '../components/Categories'
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -18,7 +19,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView>
-        <View className = "bg-white">
+        <View className = "bg-white pb-2">
             <View className = "flex-row space-x-1 ml-2 items-center pt-5 px-2 mb-2">
                 <Image source = {{
                     uri: "https://links.papareact.com/wru"
@@ -28,7 +29,7 @@ const HomeScreen = () => {
                 <View className = "flex-grow">
                     <Text className = "text-xs font-bold text-gray-400">Deliver now!</Text>
                     <Text className = "font-bold text-xl">Current Location
-                        <ChevronDownIcon size = {16} color = '#00CCBB' className = "" />
+                        <ChevronDownIcon size = {16} color = '#00CCBB' />
                     </Text>
                 </View>
                 <UserIcon size = {35} color = '#00CCBB' />
@@ -44,8 +45,11 @@ const HomeScreen = () => {
                 </View>
                 <AdjustmentsVerticalIcon size = {24} color = '#00CCBB' />
             </View>
-            <Text> Hello </Text>
+            {/* Categories */}
         </View>
+        <ScrollView>
+            <Categories />
+        </ScrollView>
     </SafeAreaView>
   )
 }
