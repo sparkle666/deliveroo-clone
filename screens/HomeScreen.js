@@ -1,5 +1,5 @@
 import { View, Text, Image, TextInput, ScrollView } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {
@@ -8,20 +8,25 @@ import {
     AdjustmentsVerticalIcon} from 'react-native-heroicons/outline'
 import Categories from '../components/Categories'
 import FeaturedRow from '../components/FeaturedRow'
+import sanityClient from "../sanity"
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-
+  const [featuredCategories, setFeaturedCategories] = useState([])
   useLayoutEffect(() => {
     navigation.setOptions({
         headerShown: false
     })
   }, [])
 
+  useEffect(()=>{
+
+  }, [])
+
   return (
     <SafeAreaView>
-        <View className = "bg-white pb-2">
-            <View className = "flex-row space-x-1 ml-2 items-center pt-5 px-2 mb-2">
+        <View className = "bg-white">
+            <View className = "flex-row space-x-1 ml-2 items-center pt-5 px-2">
                 <Image source = {{
                     uri: "https://links.papareact.com/wru"
                 }} 
@@ -36,7 +41,7 @@ const HomeScreen = () => {
                 <UserIcon size = {35} color = '#00CCBB' />
             </View>
             {/* Input */}
-            <View className = "flex-row items-center px-3">
+            <View className = "flex-row items-center px-3 pb-3">
                 <View className = "flex-row flex-1 space-x-2 bg-gray-200 p-2 rounded">
                     <MagnifyingGlassIcon  size = {20} color = 'gray' />
                     <TextInput
@@ -49,9 +54,9 @@ const HomeScreen = () => {
             </View>
         </View>
         {/* Categories */}
-        <ScrollView className = 'bg-gray-100'
+        <ScrollView className = 'bg-gray-100 '
         contentContainerStyle = {{
-            paddingBottom: 10
+            paddingBottom: 1
         }}
         >
             <Categories />
@@ -68,11 +73,11 @@ const HomeScreen = () => {
                 id = '123'
             />
             {/* Offers near you */}
-            <FeaturedRow 
+            {/* <FeaturedRow 
                 title = "Offers near you"
                 description = "Why not surpport your local resturants tonight!"
                 id = '1234'
-            />
+            /> */}
         </ScrollView>
     </SafeAreaView>
   )
