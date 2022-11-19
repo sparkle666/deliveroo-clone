@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput, ScrollView } from 'react-native'
+import { View, Text, Image, TextInput, ScrollView, Dimensions } from 'react-native'
 import React, { useLayoutEffect, useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -13,6 +13,7 @@ import sanityClient from "../sanity"
 const HomeScreen = () => {
   const navigation = useNavigation();
   const [featuredCategories, setFeaturedCategories] = useState([])
+
   useLayoutEffect(() => {
     navigation.setOptions({
         headerShown: false
@@ -54,9 +55,9 @@ const HomeScreen = () => {
             </View>
         </View>
         {/* Categories */}
-        <ScrollView className = 'bg-gray-100 '
+        <ScrollView className = 'bg-gray-200'
         contentContainerStyle = {{
-            paddingBottom: 1
+            paddingBottom: 200,
         }}
         >
             <Categories />
@@ -65,7 +66,7 @@ const HomeScreen = () => {
                 title = "Featured"
                 description = "Paid placements from our partners"
                 id = '12'
-            />
+                />
             {/* Tasty Disount */}
             <FeaturedRow 
                 title = "Tasty Discount"
@@ -73,11 +74,11 @@ const HomeScreen = () => {
                 id = '123'
             />
             {/* Offers near you */}
-            {/* <FeaturedRow 
+            <FeaturedRow 
                 title = "Offers near you"
                 description = "Why not surpport your local resturants tonight!"
                 id = '1234'
-            /> */}
+            />
         </ScrollView>
     </SafeAreaView>
   )

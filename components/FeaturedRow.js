@@ -8,7 +8,7 @@ const FeaturedRow = ({title, description, featuredCategory}) => {
   return (
     <View style = {{
         marginTop: 10,
-        paddingHorizontal: 14
+        paddingHorizontal: 14,
     }}>
       <View className = 'flex-row justify-between'
         style = {{
