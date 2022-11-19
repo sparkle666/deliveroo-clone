@@ -52,6 +52,7 @@ const RestaurantCard = ({
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: 6,
+        paddingBottom: 8
        }}>
         <MapPinIcon color = "gray" size = {22} opacity = {0.4} />
         <Text> Nearby - {address} </Text>

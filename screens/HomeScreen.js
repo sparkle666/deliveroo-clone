@@ -85,3 +85,6 @@ const HomeScreen = () => {
 }
 
 export default HomeScreen
+
+// Write an article on bugs and tradeoffs concerned with ScrollVIew like components out of bounds
+// And why FlatList is better
