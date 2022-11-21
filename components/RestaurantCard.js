@@ -12,17 +12,19 @@ const RestaurantCard = ({
     long,
     lat
 }) => {
+
   return (
     <TouchableOpacity style = {{
       backgroundColor: 'white',
       marginRight: 8
     }}>
-      <Image source = {imgURL}
+      <Image source = {{uri: imgURL}}
        style = {{
         height: 144,
         width: 256,
         borderRadius: 4,
        }}
+       resizeMode = "cover"
        />
        <View style = {{
         paddingHorizontal: 6,

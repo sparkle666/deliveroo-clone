@@ -1,10 +1,23 @@
 import { View, Text, ScrollView } from 'react-native'
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { ArrowRightIcon } from 'react-native-heroicons/outline'
 import RestaurantCard from './RestaurantCard'
 import sushi from "../assets/images/sushi-1.jpg"
+import client, { urlFor } from "../sanity"
 
-const FeaturedRow = ({title, description, featuredCategory}) => {
+const FeaturedRow = ({id, title, description}) => {
+  const [restaurants, setRestaurant] = useState([])
+
+  useEffect(() => {
+    client.fetch(`*[_type  == "featured" && _id == $id]
+      {...,
+        restaurant[] -> {..., 
+          dishes[]-> {...}
+          }             
+     }[0]`, {id})
+     .then(data => setRestaurant(data?.restaurant))
+  }, [])
+  
   return (
     <View style = {{
         marginTop: 10,
@@ -45,33 +58,23 @@ const FeaturedRow = ({title, description, featuredCategory}) => {
       }}
       >
         {/* Resturant cards */}
-        <RestaurantCard 
-         id = {123} imgURL = {sushi}
-         title = "Yo Sushi" rating = {3}
-         genre = "Japanese" address = "123 street"
-         short_description = "A short description"
-         dishes = {[]}
-         long = {20}
-         lat = {34}
-         />
-        <RestaurantCard 
-         id = {123} imgURL = {sushi}
-         title = "Yo Sushi" rating = {3}
-         genre = "Japanese" address = "123 street"
-         short_description = "A short description"
-         dishes = {[]}
-         long = {20}
-         lat = {34}
-         />
-        <RestaurantCard 
-         id = {123} imgURL = {sushi}
-         title = "Yo Sushi" rating = {3}
-         genre = "Japanese" address = "123 street"
-         short_description = "A short description"
-         dishes = {[]}
-         long = {20}
-         lat = {34}
-         />
+
+        {restaurants.map(restaurant => (
+          <RestaurantCard 
+           key = {restaurant._id}
+           id = {restaurant._id} 
+           imgURL = {urlFor(restaurant.image).url()}
+           title = {restaurant.title} 
+           rating = {restaurant.rating} 
+           genre = "Japanese" 
+           address = {restaurant.address} 
+           short_description = {restaurant.short_description} 
+           dishes = {[]}
+           long = {restaurant.long} 
+           lat = {restaurant.lat} 
+           />
+
+          ))}
       </ScrollView>
     </View>
   )

@@ -8,7 +8,7 @@ import {
     AdjustmentsVerticalIcon} from 'react-native-heroicons/outline'
 import Categories from '../components/Categories'
 import FeaturedRow from '../components/FeaturedRow'
-import sanityClient from "../sanity"
+import client from "../sanity"
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -21,6 +21,13 @@ const HomeScreen = () => {
   }, [])
 
   useEffect(()=>{
+    client.fetch(`
+    *[_type  == "featured"]{...,
+        restaurant[] -> {..., 
+            dishes[]-> {...}
+        }             
+       }
+    `).then(data => setFeaturedCategories(data))
 
   }, [])
 
@@ -62,23 +69,14 @@ const HomeScreen = () => {
         >
             <Categories />
             {/* Featured rows */}
-            <FeaturedRow 
-                title = "Featured"
-                description = "Paid placements from our partners"
-                id = '12'
-                />
-            {/* Tasty Disount */}
-            <FeaturedRow 
-                title = "Tasty Discount"
-                description = "Everyone has being enjoying this juicy discounts"
-                id = '123'
-            />
-            {/* Offers near you */}
-            <FeaturedRow 
-                title = "Offers near you"
-                description = "Why not surpport your local resturants tonight!"
-                id = '1234'
-            />
+            {featuredCategories?.map(category => (
+                <FeaturedRow 
+                    key = {category._id}
+                    title = {category.name}
+                    description = {category.short_description}
+                    id = {category._id}
+                    />
+            ))}
         </ScrollView>
     </SafeAreaView>
   )
@@ -87,4 +85,7 @@ const HomeScreen = () => {
 export default HomeScreen
 
 // Write an article on bugs and tradeoffs concerned with ScrollVIew like components out of bounds
-// And why FlatList is better
+// And why FlatList is better. Fix is to add more padding to the scroolview bottom.
+// Another frequent bug encountered is with the expo app. At times it freezes up and keeps showing home error.
+// - Styling a react native scrollview is imposible with nativewind
+// Fix is to clear cache and or clear data.
