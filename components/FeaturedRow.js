@@ -16,7 +16,7 @@ const FeaturedRow = ({id, title, description}) => {
           }             
      }[0]`, {id})
      .then(data => setRestaurant(data?.restaurant))
-  }, [])
+  }, [id])
   
   return (
     <View style = {{
@@ -66,7 +66,7 @@ const FeaturedRow = ({id, title, description}) => {
            imgURL = {urlFor(restaurant.image).url()}
            title = {restaurant.title} 
            rating = {restaurant.rating} 
-           genre = "Japanese" 
+           genre = "Fast Food" 
            address = {restaurant.address} 
            short_description = {restaurant.short_description} 
            dishes = {[]}
