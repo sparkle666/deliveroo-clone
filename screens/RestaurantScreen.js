@@ -1,6 +1,7 @@
 import { View, Text, ScrollView, Image, TouchableOpacity} from 'react-native'
 import React, {useLayoutEffect} from 'react'
 import {ArrowLeftIcon, ArrowRightIcon, MapPinIcon, QuestionMarkCircleIcon, StarIcon } from 'react-native-heroicons/solid';
+import DishRow from '../components/DishRow';
 
 const RestaurantScreen = ({navigation, route}) => {
   const {
@@ -16,14 +17,13 @@ const RestaurantScreen = ({navigation, route}) => {
     lat
   } = route.params;
   // used when the components gets painted in the screen
-  
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false
     })
   }, [])
 
-  // console.log(imgURL)
+  console.log(dishes)
   return (
     <ScrollView>
       <View style = {{
@@ -69,6 +69,21 @@ const RestaurantScreen = ({navigation, route}) => {
           </View>
         </TouchableOpacity>
       </View>
+      <View className = "px-3 my-3">
+        <Text className = "font-bold text-2xl">Menu</Text>
+      </View>
+      {dishes?.map((dish) => {
+        return (
+          <DishRow 
+            key = {dish._id}
+            id = {dish._id}
+            name = {dish.name}
+            short_description = {dish.short_description}
+            price = {dish.price}
+            image = {dish.image}
+          />
+        )
+      })}
     </ScrollView>
   )
 }

@@ -17,7 +17,7 @@ const FeaturedRow = ({id, title, description}) => {
      }[0]`, {id})
      .then(data => setRestaurant(data?.restaurant))
   }, [id])
-  
+  console.log(restaurants)
   return (
     <View style = {{
         marginTop: 10,
@@ -69,7 +69,7 @@ const FeaturedRow = ({id, title, description}) => {
            genre = "Fast Food" 
            address = {restaurant.address} 
            short_description = {restaurant.short_description} 
-           dishes = {[]}
+           dishes = {restaurant.dishes}
            long = {restaurant.long} 
            lat = {restaurant.lat} 
            />
