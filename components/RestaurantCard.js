@@ -2,6 +2,8 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { StarIcon } from 'react-native-heroicons/solid'
 import { MapPinIcon } from 'react-native-heroicons/outline'
+import { useNavigation } from '@react-navigation/native'
+
 
 const RestaurantCard = ({
     id, imgURL,
@@ -13,11 +15,28 @@ const RestaurantCard = ({
     lat
 }) => {
 
+  const navigation = useNavigation()
+
   return (
     <TouchableOpacity style = {{
       backgroundColor: 'white',
       marginRight: 8
-    }}>
+    }}
+    onPress = {()=> navigation.navigate("SecondScreen")}
+    // onPress = {()=>{navigation.navigate("Second", {
+    //   id, 
+    //   imgURL,
+    //   title, 
+    //   rating,
+    //   genre, 
+    //   address,
+    //   short_description,
+    //   dishes,
+    //   long,
+    //   lat
+    // })}
+  // }
+    >
       <Image source = {{uri: imgURL}}
        style = {{
         height: 144,
