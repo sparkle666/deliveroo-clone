@@ -15,7 +15,7 @@ export default function App() {
       <Stack.Navigator initialRouteName='HomeScreen'>
         <Stack.Screen name = "HomeScreen" component = {HomeScreen}/>
         <Stack.Screen name = "SecondScreen" component = {SecondScreen}/>
-        {/* <Stack.Screen name = "RestaurantScreen" component = {RestaurantScreen}/> */}
+        <Stack.Screen name = "RestaurantScreen" component = {RestaurantScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

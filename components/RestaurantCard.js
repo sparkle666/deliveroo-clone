@@ -22,20 +22,18 @@ const RestaurantCard = ({
       backgroundColor: 'white',
       marginRight: 8
     }}
-    onPress = {()=> navigation.navigate("SecondScreen")}
-    // onPress = {()=>{navigation.navigate("Second", {
-    //   id, 
-    //   imgURL,
-    //   title, 
-    //   rating,
-    //   genre, 
-    //   address,
-    //   short_description,
-    //   dishes,
-    //   long,
-    //   lat
-    // })}
-  // }
+    onPress = {()=> navigation.navigate("RestaurantScreen", {
+      id, 
+      imgURL,
+      title, 
+      rating,
+      genre, 
+      address,
+      short_description,
+      dishes,
+      long,
+      lat
+    })}
     >
       <Image source = {{uri: imgURL}}
        style = {{
