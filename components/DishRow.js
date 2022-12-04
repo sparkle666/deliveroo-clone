@@ -1,43 +1,81 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
-import React from 'react'
+import React, {useState} from 'react'
 import {urlFor} from "../sanity"
+import { MinusCircleIcon, PlusCircleIcon } from 'react-native-heroicons/solid'
+
 const DishRow = ({id, name, short_description, price, image}) => {
+
+    const [isPressed, setisPressed] = useState(false)
+    // Use to show the popup below Opacty view
   return (
-    <TouchableOpacity style = {{
-        backgroundColor: "white",
-        padding: 12,
-        borderBottomWidth: 1,
-        borderColor: "#eee"
-    }}>
-        <View  style = {{
-                flexDirection: "row",
-                justifyContent: "space-between"
-            }}>
-            <View>
-                <Text className = "bg-red-300 text-lg font-bold"
+    <>
+    
+        <TouchableOpacity 
+        onPress={()=> setisPressed(!isPressed)}
+        style = {{
+            backgroundColor: "white",
+            padding: 12,
+            borderBottomWidth: isPressed ? 0 : 1,
+            borderColor: "#eee"
+        }}>
+            <View  style = {{
+                    flexDirection: "row",
+                    justifyContent: "space-between"
+                }}>
+                <View>
+                    <Text className = "bg-red-300 text-lg font-bold"
+                    style = {{
+                        fontWeight: "bold",
+                        fontSize: 18,
+                    }}
+                    >{name}</Text>
+                    <Text style = {{
+                        color: "#333",
+                        width: 250,
+                        marginVertical: 8
+                    }}>{short_description}</Text>
+                    <Text>${price}.00</Text>
+                </View>
+                <Image source = {{
+                    uri: urlFor(image).url()
+                }} 
+                resizeMode = "cover"
+                className = "h-12 w-12 rounded-sm"
                 style = {{
-                    fontWeight: "bold",
-                    fontSize: 18,
+                    width: 80,
+                    height: 80,
+                    borderRadius: 10
                 }}
-                >{name}</Text>
-                <Text style = {{
-                    color: "#333"
-                }}>{short_description}</Text>
-                <Text>${price}.00</Text>
+                />
             </View>
-            <Image source = {{
-                uri: urlFor(image).url()
-            }} 
-            resizeMode = "cover"
-            className = "h-12 w-12 rounded-sm"
-            style = {{
-                width: 80,
-                height: 80,
-                borderRadius: 10
-            }}
-            />
-        </View>
-    </TouchableOpacity>
+        </TouchableOpacity>
+
+        {isPressed && 
+            <View style = {{
+                backgroundColor: "white",
+                borderBottomWidth: 1,
+                borderColor: "#eee",
+                paddingHorizontal: 6
+            }}>
+                <View style = {{
+                    flexDirection: "row",
+                    alignItems: "center"
+                }}>
+                    <TouchableOpacity>
+                        <MinusCircleIcon size = {40} color = "#00CCBB" />
+                    </TouchableOpacity>
+                    <Text
+                    style = {{
+                        marginHorizontal: 4
+                    }}
+                    >0</Text>
+                    <TouchableOpacity>
+                        <PlusCircleIcon size = {40} color = "#00CCBB" />
+                    </TouchableOpacity>
+                </View>
+            </View>
+        }
+    </>
   )
 }
 

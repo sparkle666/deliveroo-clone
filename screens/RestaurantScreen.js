@@ -23,7 +23,6 @@ const RestaurantScreen = ({navigation, route}) => {
     })
   }, [])
 
-  console.log(dishes)
   return (
     <ScrollView>
       <View style = {{
@@ -72,10 +71,10 @@ const RestaurantScreen = ({navigation, route}) => {
       <View className = "px-3 my-3">
         <Text className = "font-bold text-2xl">Menu</Text>
       </View>
-      {dishes?.map((dish) => {
+      {dishes?.map((dish, id) => {
         return (
           <DishRow 
-            key = {dish._id}
+            key = {dish._id + id}
             id = {dish._id}
             name = {dish.name}
             short_description = {dish.short_description}

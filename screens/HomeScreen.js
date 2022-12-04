@@ -5,10 +5,12 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import {
     ChevronDownIcon, UserIcon, 
     MagnifyingGlassIcon, 
-    AdjustmentsVerticalIcon} from 'react-native-heroicons/outline'
+    AdjustmentsVerticalIcon
+    } from 'react-native-heroicons/outline'
 import Categories from '../components/Categories'
 import FeaturedRow from '../components/FeaturedRow'
 import client from "../sanity"
+
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -64,7 +66,7 @@ const HomeScreen = () => {
         {/* Categories */}
         <ScrollView className = 'bg-gray-200'
         contentContainerStyle = {{
-            paddingBottom: 200,
+            paddingBottom: 130
         }}
         >
             <Categories />
@@ -89,3 +91,4 @@ export default HomeScreen
 // Another frequent bug encountered is with the expo app. At times it freezes up and keeps showing home error.
 // - Styling a react native scrollview is imposible with nativewind
 // Fix is to clear cache and or clear data.
+

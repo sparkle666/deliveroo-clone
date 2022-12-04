@@ -17,7 +17,7 @@ const FeaturedRow = ({id, title, description}) => {
      }[0]`, {id})
      .then(data => setRestaurant(data?.restaurant))
   }, [id])
-  console.log(restaurants)
+  
   return (
     <View style = {{
         marginTop: 10,
@@ -29,7 +29,7 @@ const FeaturedRow = ({id, title, description}) => {
             flexDirection: 'row',
             paddingTop: 10,
             alignItems: "center",
-            justifyContent: "space-between"
+            justifyContent: "space-between",
         }}
       >
         <Text
@@ -81,3 +81,4 @@ const FeaturedRow = ({id, title, description}) => {
 }
 
 export default FeaturedRow
+
