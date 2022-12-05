@@ -3,19 +3,19 @@ import React, {useState} from 'react'
 import {urlFor} from "../sanity"
 import { MinusCircleIcon, PlusCircleIcon } from 'react-native-heroicons/solid'
 import {useDispatch, useSelector} from "react-redux"
-import { addToBasket } from '../features/basketSlice'
+import { addToBasket, selectBasketItemWithId } from '../features/basketSlice'
 
 const DishRow = ({id, name, short_description, price, image}) => {
 
     const [isPressed, setisPressed] = useState(false)
     // Use to show the popup below Opacty view
     const dispatch = useDispatch()
-    const items = useSelector((state)=> state.basket.items)
+    const items = useSelector(state => selectBasketItemWithId(state, id))
 
     const addItemToBasket = () => {
         dispatch(addToBasket({id, name, short_description, price, image}))
     }
-    console.log(items)
+    
   return (
     <>
     

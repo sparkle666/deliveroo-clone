@@ -17,9 +17,13 @@ export const basketSlice = createSlice({
   },
 })
 
+
 // Action creators are generated for each case reducer function
 export const { addToBasket, removeFromBasket } = basketSlice.actions
 
 export const selectBasketItems = (state) => state.basket.items
+// Filter out the item with specific id
+export const selectBasketItemWithId = (state, id) => state.basket.items.filter((item)=> item.id === id )
+
 
 export default basketSlice.reducer
