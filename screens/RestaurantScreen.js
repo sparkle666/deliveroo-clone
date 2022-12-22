@@ -2,6 +2,7 @@ import { View, Text, ScrollView, Image, TouchableOpacity} from 'react-native'
 import React, {useLayoutEffect} from 'react'
 import {ArrowLeftIcon, ArrowRightIcon, MapPinIcon, QuestionMarkCircleIcon, StarIcon } from 'react-native-heroicons/solid';
 import DishRow from '../components/DishRow';
+import BasketIcon from '../components/BasketIcon';
 
 const RestaurantScreen = ({navigation, route}) => {
   const {
@@ -24,6 +25,10 @@ const RestaurantScreen = ({navigation, route}) => {
   }, [])
 
   return (
+    <View style = {{
+      paddingBottom: 80,
+      // backgroundColor: "white"
+    }}>
     <ScrollView>
       <View style = {{
         position: "relative"
@@ -84,6 +89,8 @@ const RestaurantScreen = ({navigation, route}) => {
         )
       })}
     </ScrollView>
+    <BasketIcon/>
+    </View>
   )
 }
 

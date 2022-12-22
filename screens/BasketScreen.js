@@ -3,7 +3,7 @@ import React from 'react'
 
 const SecondScreen = () => {
   return (
-    <View>
+    <View className = "bg-white w-full h-full mt-20">
       <Text>SecondScreen</Text>
     </View>
   )
