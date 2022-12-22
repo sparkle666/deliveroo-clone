@@ -9,6 +9,8 @@ const BasketIcon = () => {
     const navigation = useNavigation()
     const basketTotal = useSelector(selectBasketTotal)
 
+    // if (items.length === 0) return null
+    
     return (
         <View className = "absolute bg-red-300 bottom-10 w-full z-4" style = {{
             backgroundColor: "#fff",

@@ -3,12 +3,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import React from 'react'
 
-const SecondScreen = () => {
+const BasketScreen = () => {
   return (
     <SafeAreaView className = "bg-white w-full h-full">
-      <Text>SecondScreen</Text>
+      <Text>BasketScreen</Text>
     </SafeAreaView>
   )
 }
 
-export default SecondScreen
+export default BasketScreen
