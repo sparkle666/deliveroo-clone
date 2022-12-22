@@ -19,7 +19,7 @@ export default function App() {
           <Stack.Screen name = "HomeScreen" component = {HomeScreen}/>
           <Stack.Screen name = "BasketScreen" component = {BasketScreen}
             options = {{
-              presentation: "transparentModal",
+              presentation: "modal",
               headerShown: false,
               title: "View Basket"
             }}
