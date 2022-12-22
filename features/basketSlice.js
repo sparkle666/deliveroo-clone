@@ -12,7 +12,18 @@ export const basketSlice = createSlice({
       state.items = [...state.items, action.payload]
     },
     removeFromBasket: (state, action) => {
-      state.items -= 1
+      // Find index of the specific item in the state
+      const index = state.items.findIndex((item) => item.id === action.payload.id )
+      console.log(index)
+      let newBasket = [...state.items]
+
+      if(index >=0){
+        newBasket.splice(index, 1)
+      }
+      else{
+        console.warn(`Can't remove ID: ${action.payload.id} as its not in the basket!`)
+      }
+      state.items = newBasket // set the basket back to the spliced(removed) items array
     },
   },
 })

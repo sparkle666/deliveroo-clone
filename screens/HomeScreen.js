@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput, ScrollView } from 'react-native'
+import { View, Text, Image, TextInput, ScrollView,TouchableOpacity } from 'react-native'
 import React, { useLayoutEffect, useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -10,7 +10,6 @@ import {
 import Categories from '../components/Categories'
 import FeaturedRow from '../components/FeaturedRow'
 import client from "../sanity"
-
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -64,6 +63,7 @@ const HomeScreen = () => {
             </View>
         </View>
         {/* Categories */}
+        
         <ScrollView className = 'bg-gray-200'
         contentContainerStyle = {{
             paddingBottom: 130
