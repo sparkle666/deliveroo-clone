@@ -6,7 +6,7 @@ const initialState = {
     title: null,
     short_description: null,
     price: null,
-    image: null,
+    imgURL: null,
     rating: null,
     genre: null,
     address: null,

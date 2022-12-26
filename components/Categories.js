@@ -26,7 +26,9 @@ const Categories = () => {
      >
       {categories?.map(category => {
         return (
-          <CategoryCard key = {category._id} img = {urlFor(category.image).url()} title = {category.name} />
+          <CategoryCard key = {category._id} 
+          img = {urlFor(category.image).url()} 
+          title = {category.name} />
         )
 })}
     </ScrollView>
